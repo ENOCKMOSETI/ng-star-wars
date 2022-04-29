@@ -1,0 +1,22 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #a9a9a9;
+    padding: 1rem 2rem;
+}
+
+nav input {
+    border-radius: 2rem;
+}
+
+.person {
+    list-style: none;
+    background-color: #8a2be2;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    margin-bottom: 10px;
+
+}

@@ -1,0 +1,21 @@
+<nav>
+    <h1>Star Wars</h1>
+    <input type="text" placeholder="Search Person">
+    <div style="display: flex; flex-direction: row;">
+        <div>Filter By</div>
+        <select name="" id="">
+            <option value="planet">Planet</option>
+            <option value="film">Film</option>
+            <option value="species">Species</option>
+        </select>
+    </div>
+</nav>
+
+<div *ngFor="let person of people">
+    <li class="person">
+        <h3>Name: {{person.name}}</h3>
+        <div>Birth year: {{person.birth_year}}</div>
+        <div>Skin color: {{person.skin_color}}</div>
+        <div>Gender: {{person.gender}}</div>
+    </li>
+</div>
