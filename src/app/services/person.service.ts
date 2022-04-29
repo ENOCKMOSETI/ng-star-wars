@@ -7,7 +7,7 @@ import { Person } from '../person';
 })
 export class PersonService {
 
-  backendUrl = 'https://swapi.dev/api/';
+  backendUrl = 'https://swapi.dev/api';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class PersonService {
     return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people`);
   }
 
-  getFilms() {
-    return this.http.get(`${this.backendUrl}/films`);
+  getPerson(id: number) {
+    return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people/${id}`);
   }
 }
