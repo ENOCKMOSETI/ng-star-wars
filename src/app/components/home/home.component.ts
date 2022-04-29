@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from 'src/app/person';
+import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,18 @@ export class HomeComponent implements OnInit {
 
   people: Person[] = [];
 
-  constructor(private http: HttpClient) {
-    http.get<{ results: Person[] }>("https://swapi.dev/api/people/")
-      .subscribe(({ results }) => {
-        console.log(results);
-        this.people = results;
-      })
+  constructor(private personService: PersonService) {
+    this.getPeople();      
+  }
+
+  getPeople() {
+    this.personService.getPeople().subscribe(({ results }) => {
+      this.people = results;
+      console.log(results[0].name);
+      for (let i in results) {
+        console.log(i, results[i].name)
+      }
+    })
   }
 
   ngOnInit(): void {
