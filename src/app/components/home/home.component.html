@@ -12,10 +12,13 @@
 </nav>
 
 <div *ngFor="let person of people">
-    <li class="person">
-        <h3>Name: {{person.name}}</h3>
-        <div>Birth year: {{person.birth_year}}</div>
-        <div>Skin color: {{person.skin_color}}</div>
-        <div>Gender: {{person.gender}}</div>
-    </li>
+    <!-- TODO: map index of every person to url  -->
+    <a routerLink="people/">
+        <li class="person">
+            <h3>Name: {{person.name}}</h3>
+            <div>Birth year: {{person.birth_year}}</div>
+            <div>Skin color: {{person.skin_color}}</div>
+            <div>Gender: {{person.gender}}</div>
+        </li>
+    </a>
 </div>
