@@ -8,8 +8,10 @@ nav {
     padding: 1rem 2rem;
 }
 
-nav input {
-    border-radius: 2rem;
+a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
 }
 
 .person {
@@ -18,5 +20,4 @@ nav input {
     padding: 1rem 2rem;
     border-radius: 2rem;
     margin-bottom: 10px;
-
 }
