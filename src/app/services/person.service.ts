@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Person } from '../person';
+import { People } from '../person';
+import { catchError, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
-  backendUrl = 'https://swapi.dev/api';
+  backendUrl = 'https://swapi.dev/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -19,11 +20,9 @@ export class PersonService {
     }
   }
 
-  getPeople() {
-    return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people/?page=2`);
-  }
-
-  getPerson(id: number) {
-    return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people/${id}`);
+  getPeople(page: number): Observable<People[]> {
+    return this.http.get<People[]>(`${this.backendUrl}people?format=json${this.getByPage(page)}`).pipe(
+      map((res: any) => res['results'])
+    );
   }
 }

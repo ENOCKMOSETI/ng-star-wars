@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'src/app/person';
+import { People } from 'src/app/person';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -9,18 +9,19 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class HomeComponent implements OnInit {
 
-  people: Person[] = [];
+  people: People[] = [];
+
+  pageNumber: number = 1;
 
   constructor(private personService: PersonService) {
     this.getPeople();      
   }
 
   getPeople() {
-    this.personService.getPeople().subscribe(({ results }) => {
+    this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
       this.people = results;
-      console.log(results[0].name);
       for (let i in results) {
-        console.log(i, results[i].name)
+        console.log(i, results[i])
       }
     })
   }
