@@ -11,8 +11,16 @@ export class PersonService {
 
   constructor(private http: HttpClient) { }
 
+  getByPage(page: number): string {
+    if (page) {
+      return `&page=${page}`;
+    } else {
+      return '';
+    }
+  }
+
   getPeople() {
-    return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people`);
+    return this.http.get<{ results: Person[] }>(`${this.backendUrl}/people/?page=2`);
   }
 
   getPerson(id: number) {
