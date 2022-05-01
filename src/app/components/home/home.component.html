@@ -22,16 +22,4 @@
         </button>
     </li>
 </div>
-<div *ngIf="selectedPerson">
-    <h1>{{selectedPerson.name}} details</h1>
-    <div>Height: {{selectedPerson.height}}</div>
-    <div>Weight: {{selectedPerson.mass}}</div>
-    <div>Hair Color: {{selectedPerson.hair_color}}</div>
-    <div>Skin Color: {{selectedPerson.skin_color}}</div>
-    <div>Eye Color: {{selectedPerson.eye_color}}</div>
-    <div>Birth Year: {{selectedPerson.birth_year}}</div>
-    <div>
-        <label for="person-name">Person Name</label>
-        <input type="text" [(ngModel)]="selectedPerson.name" placeholder="">
-    </div>
-</div>
+<app-person [person]="selectedPerson"></app-person>
