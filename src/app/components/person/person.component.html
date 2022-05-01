@@ -1,0 +1,18 @@
+<div *ngIf="person">
+    <h1>{{person.name}} details</h1>
+    <div>Height: {{person.height}}</div>
+    <div>Weight: {{person.mass}}</div>
+    <div>Hair Color: {{person.hair_color}}</div>
+    <div>Skin Color: {{person.skin_color}}</div>
+    <div>Eye Color: {{person.eye_color}}</div>
+    <div>Birth Year: {{person.birth_year}}</div>
+    <div>Gender: {{person.gender}}</div>
+    <div>Homeworld: {{person.homeworld}}</div>
+    <div>Films: {{person.films}}</div>
+    <div *ngIf="person.species.length">Species: {{person.species}}</div>
+    <div>Vehicles: {{person.vehicles}}</div>
+    <div>Starships: {{person.starships}}</div>
+    <div>Created: {{person.created | date}}</div>
+    <div>Edited: {{person.edited|date}}</div>
+    <div>Url: {{person.url}}</div>
+</div>
