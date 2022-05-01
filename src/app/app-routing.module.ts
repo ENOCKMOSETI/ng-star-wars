@@ -5,7 +5,7 @@ import { PersonComponent } from './components/person/person.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'people/:id', component: PersonComponent },
+  { path: 'person', component: PersonComponent },
 ];
 
 @NgModule({
