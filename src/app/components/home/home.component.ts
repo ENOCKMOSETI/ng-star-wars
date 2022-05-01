@@ -13,19 +13,17 @@ export class HomeComponent implements OnInit {
 
   pageNumber: number = 1;
 
+
   constructor(private personService: PersonService) {
-    this.getPeople();      
+    this.getPeople();    
   }
 
   getPeople() {
     this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
       this.people = results;
-      for (let i in results) {
-        console.log(i, results[i])
-      }
     })
   }
-
+  
   ngOnInit(): void {
   }
 
