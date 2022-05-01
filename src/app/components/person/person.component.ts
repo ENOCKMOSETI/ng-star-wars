@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
-import { Person } from 'src/app/person';
+import { People } from 'src/app/person';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -12,18 +11,20 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class PersonComponent implements OnInit {
 
-  people: Person[] = [];
-  constructor(private personService: PersonService,
-    private route: ActivatedRoute) { }
+  person!: People;
+
+  constructor(
+    private personService: PersonService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.getPerson();
+    this.getPerson(1);
   }
 
-  getPerson(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'))
-    this.personService.getPerson(id).subscribe(({ results }) => {
-      this.people = results;
-    })
+  getPerson(id: number) {
+    return this.personService.getPeopleById(id).subscribe(results => {
+      this.person = results
+    });
   }
 }
