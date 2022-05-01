@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
 
   people: People[] = [];
 
+  person!: People;
+
+  selectedPerson!: People;
+
   pageNumber: number = 1;
 
 
@@ -24,6 +28,10 @@ export class HomeComponent implements OnInit {
     })
   }
   
+  onSelect(person: People): void {
+    this.selectedPerson = person;
+  }
+
   ngOnInit(): void {
   }
 
