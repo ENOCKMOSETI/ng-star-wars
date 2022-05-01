@@ -1,5 +1,4 @@
-export interface Person {
-    id: string;
+export interface People {
     name: string;
     height: string;
     mass: string;
@@ -13,7 +12,7 @@ export interface Person {
     species: any[];
     vehicles: string[];
     starships: string[];
-    created: Date;
-    edited: Date;
+    created: any;
+    edited: any;
     url: string;
 }
