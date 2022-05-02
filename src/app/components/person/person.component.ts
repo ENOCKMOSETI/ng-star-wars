@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
 import { People } from 'src/app/person';
 import { PersonService } from 'src/app/services/person.service';
 
@@ -11,20 +9,44 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class PersonComponent implements OnInit {
 
-  @Input() person?: People;
-
-  constructor(
-    private personService: PersonService,
-    private route: ActivatedRoute
-  ) { }
+  constructor(private personService: PersonService) { }
 
   ngOnInit(): void {
-    this.getPerson(1);
+    this.getPeopleNames();
+    this.getPeople();
   }
 
-  getPerson(id: number) {
-    return this.personService.getPeopleById(id).subscribe(results => {
-      this.person = results
+  @Input() person?: People;
+  @Input() selectedPerson?: People;
+
+  searchText = '';
+  peopleNames: string[] =  [];
+  pageNumber: number = 2;
+  people: People[] = [];
+
+  getPeopleNames() {
+    this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
+      results.forEach(element => {
+        this.peopleNames.push(element.name);
+      });
+    })
+  }
+
+  getPeople() {
+    this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
+      this.people = results;
+    })
+  }
+
+  unSelect(): void {
+    this.person = this.selectedPerson;
+  }
+
+  newSelect(name: string) {
+    this.people.forEach(element => {
+      if(element.name == name) {
+        this.person = element;
+      };
     });
   }
 }

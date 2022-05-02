@@ -1,0 +1,33 @@
+img {
+    height: 7rem;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.search input{
+    vertical-align: auto;
+    padding: 1rem 10rem;
+    border: 1px solid goldenrod;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.person {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+.names {
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+}

@@ -1,5 +1,21 @@
-<div *ngIf="person">
-    <h1>{{person.name}} details</h1>
+<div *ngIf="person" class="person">
+    <nav class="navbar">
+        <ul>
+            <li>
+                <img src="../../../assets/img/StarWarsLogo.png" alt="logo">
+            </li>
+            <li class="search">
+                <input type="text" [(ngModel)]="searchText" placeholder="Search Person">
+            </li>
+            <li>
+                <button type="button" (click)="unSelect()">X</button>
+            </li>
+        </ul>
+    </nav>
+    <li class="names" *ngFor="let name of peopleNames | filter: searchText" (click)="newSelect(name)">
+        {{name}}
+    </li>
+    <h1>{{person.name}} facts</h1>
     <div>Height: {{person.height}}</div>
     <div>Weight: {{person.mass}}</div>
     <div>Hair Color: {{person.hair_color}}</div>
@@ -10,8 +26,8 @@
     <div>Homeworld: {{person.homeworld}}</div>
     <div>Films: {{person.films}}</div>
     <div *ngIf="person.species.length">Species: {{person.species}}</div>
-    <div>Vehicles: {{person.vehicles}}</div>
-    <div>Starships: {{person.starships}}</div>
+    <div *ngIf="person.vehicles.length">Vehicles: {{person.vehicles}}</div>
+    <div *ngIf="person.starships.length">Starships: {{person.starships}}</div>
     <div>Created: {{person.created | date}}</div>
     <div>Edited: {{person.edited|date}}</div>
     <div>Url: {{person.url}}</div>

@@ -1,25 +1,25 @@
-<nav>
-    <h1>Star Wars</h1>
-    <input type="text" placeholder="Search Person">
-    <div style="display: flex; flex-direction: row;">
-        <div>Filter By</div>
-        <select name="" id="">
-            <option value="planet">Planet</option>
-            <option value="film">Film</option>
-            <option value="species">Species</option>
-        </select>
-    </div>
+<nav class="navbar">
+    <ul>
+        <li>
+            <a routerLink="/"></a>
+            <img src="../../../assets/img/StarWarsLogo.png" alt="logo">
+        </li>
+        <li class="filter">
+            <select name="" id="">
+                <option value="planet">Planet</option>
+                <option value="film">Film</option>
+                <option value="species">Species</option>
+            </select>
+        </li>
+    </ul>
 </nav>
-
-<div *ngFor="let person of people">
-    <!-- TODO: map index of every person to url  -->
-    <li class="person" (click)="onSelect(person)">
-        <button [class.selected]="person === selectedPerson">
+<div class="container">
+    <div class="person" *ngFor="let person of people">
+        <!-- TODO: map index of every person to url  -->
+        <li (click)="onSelect(person)">
             <h3>Name: {{person.name}}</h3>
-            <div>Birth year: {{person.birth_year}}</div>
-            <div>Skin color: {{person.skin_color}}</div>
-            <div>Gender: {{person.gender}}</div>
-        </button>
-    </li>
+            <span>Birth year: {{person.birth_year}}</span>
+        </li>
+    </div>
+    <app-person [person]="selectedPerson"></app-person>
 </div>
-<app-person [person]="selectedPerson"></app-person>

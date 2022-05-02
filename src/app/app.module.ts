@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PersonComponent } from './components/person/person.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PersonComponent
+    PersonComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

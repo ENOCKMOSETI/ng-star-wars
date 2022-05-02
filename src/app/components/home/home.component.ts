@@ -15,13 +15,10 @@ export class HomeComponent implements OnInit {
 
   selectedPerson!: People;
 
-  pageNumber: number = 1;
+  pageNumber: number = 2;
 
-
-  constructor(private personService: PersonService) {
-    this.getPeople();    
-  }
-
+  constructor(private personService: PersonService) { }
+  
   getPeople() {
     this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
       this.people = results;
@@ -31,8 +28,9 @@ export class HomeComponent implements OnInit {
   onSelect(person: People): void {
     this.selectedPerson = person;
   }
-
+  
   ngOnInit(): void {
+    this.getPeople();
   }
 
 }
