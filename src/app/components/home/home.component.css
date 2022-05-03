@@ -23,17 +23,17 @@ img {
     height: 4.2rem;
     margin: .5rem auto;
     list-style: none;
-    padding: .5rem;
+    padding: .5rem 0;
     border-radius: .1rem;
     border: 1px solid gold ;
     border-radius: 2rem;
     color: #eee;
+    font-size: small;
 }
 
 .person:hover {
     cursor: pointer;
-    background-color: #eee;
-    color: black;
+    color: lime;
     
 }
 
