@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { People } from '../person';
+import { Film } from '../person';
 import { catchError, map, Observable } from 'rxjs';
 
 @Injectable({
@@ -26,24 +27,12 @@ export class PersonService {
     );
   }
 
-  getPeopleById(id: number): Observable<People> {
-    return this.http.get<People>(`${this.backendUrl}people/${id}`).pipe(map(response => ({
-      name: response.name,
-      height: response.height,
-      mass: response.mass,
-      hair_color: response.hair_color,
-      skin_color: response.skin_color,
-      eye_color: response.eye_color,
-      birth_year: response.birth_year,
-      gender: response.gender,
-      homeworld: response.homeworld,
-      films: response.films,
-      species: response.species,
-      vehicles: response.vehicles,
-      starships: response.starships,
-      created: response.created,
-      edited: response.edited,
-      url: response.url
-    })));
+  getFilm(id: number): Observable<Film[]> {
+    return this.http.get<Film[]>(`${this.backendUrl}films/${id}`);
+  }
+
+  getFilms(url: string): Observable<Film[]> {
+    return this.http.get<Film[]>(`${url}`);
+    
   }
 }

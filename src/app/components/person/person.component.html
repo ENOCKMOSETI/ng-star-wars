@@ -12,23 +12,30 @@
             </li>
         </ul>
     </nav>
-    <li class="names" *ngFor="let name of peopleNames | filter: searchText" (click)="newSelect(name)">
-        {{name}}
-    </li>
-    <h1>{{person.name}} facts</h1>
-    <div>Height: {{person.height}}</div>
-    <div>Weight: {{person.mass}}</div>
-    <div>Hair Color: {{person.hair_color}}</div>
-    <div>Skin Color: {{person.skin_color}}</div>
-    <div>Eye Color: {{person.eye_color}}</div>
-    <div>Birth Year: {{person.birth_year}}</div>
-    <div>Gender: {{person.gender}}</div>
-    <div>Homeworld: {{person.homeworld}}</div>
-    <div>Films: {{person.films}}</div>
-    <div *ngIf="person.species.length">Species: {{person.species}}</div>
-    <div *ngIf="person.vehicles.length">Vehicles: {{person.vehicles}}</div>
-    <div *ngIf="person.starships.length">Starships: {{person.starships}}</div>
-    <div>Created: {{person.created | date}}</div>
-    <div>Edited: {{person.edited|date}}</div>
-    <div>Url: {{person.url}}</div>
+    <div class="names">
+        <ul>
+            <li *ngFor="let name of peopleNames | filter: searchText" (click)="newSelect(name)">
+                {{name}}
+            </li>
+        </ul>
+        <div class="fax">
+            <h2>{{person.name}} facts</h2>
+            <div class="fax-group">
+                <div class="group">
+                    <div>Height: {{person.height}}</div>
+                    <div>Weight: {{person.mass}}</div>
+                    <div>Hair Color: {{person.hair_color}}</div>
+                    <div>Skin Color: {{person.skin_color}}</div>
+                </div>
+                <div class="group">
+                    <div>Eye Color: {{person.eye_color}}</div>
+                    <div>Birth Year: {{person.birth_year}}</div>
+                    <div>Gender: {{person.gender}}</div>
+                </div>
+                <div class="group">
+                    <div>Films: {{person.films}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

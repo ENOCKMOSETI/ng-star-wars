@@ -9,7 +9,7 @@ img {
 }
 
 .search input{
-    vertical-align: auto;
+    vertical-align: center;
     padding: 1rem 10rem;
     border: 1px solid goldenrod;
     border-radius: 2rem;
@@ -23,11 +23,29 @@ img {
     position: absolute;
     left: 0;
     top: 0;
-    text-align: center;
+}
+
+.names ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 
 .names {
-    list-style: none;
     display: flex;
-    cursor: pointer;
+    list-style: none;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.group {
+    display: flex;
+    margin-left: 200x;
+}
+
+.group div {
+    padding: 1rem 2rem;
+    border: 1px black solid;
+    margin: 1rem;
 }
