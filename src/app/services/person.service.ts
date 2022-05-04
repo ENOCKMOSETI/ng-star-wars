@@ -23,8 +23,7 @@ export class PersonService {
 
   getPeople(page: number): Observable<People[]> {
     return this.http.get<People[]>(`${this.backendUrl}people?format=json${this.getByPage(page)}`).pipe(
-      map((res: any) => res['results'])
-    );
+      map((res: any) => res['results']));
   }
 
   getFilm(id: number): Observable<Film[]> {
@@ -33,6 +32,5 @@ export class PersonService {
 
   getFilms(url: string): Observable<Film[]> {
     return this.http.get<Film[]>(`${url}`);
-    
   }
 }
