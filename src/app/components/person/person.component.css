@@ -12,7 +12,11 @@ li button {
     border-radius: 50px;
     margin: 30px;
     padding: 1rem;
-    color: lime;
+    color: goldenrod;
+}
+
+li button:hover {
+    cursor: pointer;
 }
 
 .search input{
