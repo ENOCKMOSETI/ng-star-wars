@@ -8,6 +8,13 @@ img {
     justify-content: space-between;
 }
 
+li button {
+    border-radius: 50px;
+    margin: 30px;
+    padding: 1rem;
+    color: lime;
+}
+
 .search input{
     vertical-align: center;
     padding: 1rem 10rem;
