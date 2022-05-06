@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { People } from '../person';
-import { Film } from '../person';
+import { People, Film } from '../person';
 import { catchError, map, Observable } from 'rxjs';
 
 @Injectable({
@@ -26,11 +25,7 @@ export class PersonService {
       map((res: any) => res['results']));
   }
 
-  getFilm(id: number): Observable<Film[]> {
-    return this.http.get<Film[]>(`${this.backendUrl}films/${id}`);
-  }
-
-  getFilms(url: string): Observable<Film[]> {
-    return this.http.get<Film[]>(`${url}`);
+  getFilms(url: string): Observable<Film> {
+    return this.http.get<Film>(`${url}`);
   }
 }
