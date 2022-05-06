@@ -32,8 +32,14 @@
                     <div>Birth Year: {{person.birth_year}}</div>
                     <div>Gender: {{person.gender}}</div>
                 </div>
-                <div class="group">
-                    <div>Films: {{person.films}}</div>
+                <div (click)="fetchFilms(person)">
+                    <span>Films featured in </span>
+                    <div *ngFor="let film of personFilms">
+                        <div>
+                            <div>{{film.title}}</div>
+                            <div>{{film.release_date}}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

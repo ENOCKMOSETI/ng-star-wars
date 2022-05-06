@@ -10,13 +10,10 @@ import { PersonService } from 'src/app/services/person.service';
 export class HomeComponent implements OnInit {
 
   people: People[] = [];
-
   person!: People;
-
   selectedPerson!: People;
-
   pageNumber: number = 2;
-
+  
   constructor(private personService: PersonService) { }
   
   getPeople() {
@@ -26,11 +23,10 @@ export class HomeComponent implements OnInit {
   }
   
   onSelect(person: People): void {
-    this.selectedPerson = person;
+      this.selectedPerson = person; 
   }
   
   ngOnInit(): void {
     this.getPeople();
   }
-
 }

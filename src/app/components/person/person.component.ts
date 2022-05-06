@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { People } from 'src/app/person';
+import { People, Film } from 'src/app/person';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -13,16 +13,16 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPeopleNames();
-    this.getPeople();
   }
 
   @Input() person?: People;
   @Input() selectedPerson?: People;
 
   searchText = '';
-  peopleNames: string[] =  [];
+  peopleNames: string[] = [];
   pageNumber: number = 2;
   people: People[] = [];
+  personFilms: Film[] = [];
 
   getPeopleNames() {
     this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
@@ -32,17 +32,22 @@ export class PersonComponent implements OnInit {
     })
   }
 
-  getPeople() {
-    this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
-      this.people = results;
-    })
-  }
-
   unSelect(): void {
     this.person = this.selectedPerson;
   }
 
+  fetchFilms(person: People): void {
+    for (let film of person.films) {
+      this.personService.getFilms(film).subscribe(results => {
+        this.personFilms.push(results)
+        console.log(this.personFilms);
+        
+      })
+    }
+  }
+
   newSelect(name: string) {
+    this.personFilms = [];
     this.people.forEach(element => {
       if(element.name == name) {
         this.person = element;
