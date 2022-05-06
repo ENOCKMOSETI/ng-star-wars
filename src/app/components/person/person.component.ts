@@ -13,14 +13,15 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPeopleNames();
+    this.getPeople();
   }
 
   @Input() person?: People;
   @Input() selectedPerson?: People;
-
+  
   searchText = '';
   peopleNames: string[] = [];
-  pageNumber: number = 2;
+  pageNumber: number = 3;
   people: People[] = [];
   personFilms: Film[] = [];
 
@@ -32,18 +33,31 @@ export class PersonComponent implements OnInit {
     })
   }
 
+  getPeople() {
+    this.personService.getPeople(this.pageNumber).subscribe(( results ) => {
+      this.people = results;
+    })
+  }
+  
   unSelect(): void {
     this.person = this.selectedPerson;
+    this.personFilms = [];
   }
 
   fetchFilms(person: People): void {
+    this.personFilms = [];
     for (let film of person.films) {
       this.personService.getFilms(film).subscribe(results => {
-        this.personFilms.push(results)
-        console.log(this.personFilms);
-        
+        this.personFilms.push(results);
+        this.desendDates();
       })
     }
+  }
+
+  desendDates() {
+    return this.personFilms.sort((a: any, b: any) => {
+      return <any>new Date(b.release_date) - <any>new Date(a.release_date);
+    });
   }
 
   newSelect(name: string) {

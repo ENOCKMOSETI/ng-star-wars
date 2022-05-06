@@ -12,6 +12,9 @@
             </li>
         </ul>
     </nav>
+    <button (click)="fetchFilms(person)">
+        <span class="films">Films casted in</span>
+    </button>
     <div class="names">
         <ul>
             <li *ngFor="let name of peopleNames | filter: searchText" (click)="newSelect(name)">
@@ -24,23 +27,31 @@
                 <div class="group">
                     <div>Height: {{person.height}}</div>
                     <div>Weight: {{person.mass}}</div>
-                    <div>Hair Color: {{person.hair_color}}</div>
-                    <div>Skin Color: {{person.skin_color}}</div>
-                </div>
-                <div class="group">
-                    <div>Eye Color: {{person.eye_color}}</div>
-                    <div>Birth Year: {{person.birth_year}}</div>
                     <div>Gender: {{person.gender}}</div>
                 </div>
-                <div (click)="fetchFilms(person)">
-                    <span>Films featured in </span>
-                    <div *ngFor="let film of personFilms">
-                        <div>
-                            <div>{{film.title}}</div>
-                            <div>{{film.release_date}}</div>
-                        </div>
-                    </div>
+                <div class="group">
+                    <div>Hair Color: {{person.hair_color}}</div>
+                    <div>Eye Color: {{person.eye_color}}</div>
+                    <div>Skin Color: {{person.skin_color}}</div>
                 </div>
+            </div>
+            <div class="table">
+                <table *ngIf="personFilms.length">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Release Date</th>
+                        </tr>
+                    </thead>
+                    <tbody  *ngFor="let film of personFilms">
+                        <tr>
+                            <td>{{film.title}}</td>
+                            <td>{{film.director}}</td>
+                            <td>{{film.release_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

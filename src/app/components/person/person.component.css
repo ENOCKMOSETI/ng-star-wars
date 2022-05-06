@@ -1,5 +1,5 @@
 img {
-    height: 7rem;
+    height: 5rem;
 }
 
 .navbar ul {
@@ -10,7 +10,7 @@ img {
 
 li button {
     border-radius: 50px;
-    margin: 30px;
+    margin: 10px 30px;
     padding: 1rem;
     color: goldenrod;
 }
@@ -20,8 +20,8 @@ li button:hover {
 }
 
 .search input{
-    vertical-align: center;
-    padding: 1rem 10rem;
+    margin-top: 30px;
+    padding: .5rem 10rem;
     border: 1px solid goldenrod;
     border-radius: 2rem;
     text-align: center;
@@ -34,6 +34,13 @@ li button:hover {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.names {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .names ul li {
@@ -50,21 +57,57 @@ li button:hover {
     padding: 1rem 0;
 }
 
-.names {
+.fax {
+    margin: auto;
+    width: 80%;
+}
+
+.fax h2 {
+    text-align: center;
+}
+
+.fax-group {
     display: flex;
-    list-style: none;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 2rem;
+    justify-content: center;
 }
 
 .group {
     display: flex;
-    margin-left: 200x;
+    font-size: small;
 }
 
 .group div {
-    padding: 1rem 2rem;
+    padding: .1rem 2rem;
     border: 1px goldenrod solid;
-    margin: 1rem;
+    margin: .3rem;
+    border-radius: .5rem;
+}
+
+.films {
+    padding: 1rem 2rem;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid goldenrod;
+}
+
+th, td {
+    padding: .5rem 1rem;
+}
+
+tbody td {
+    text-align: center;
+}
+
+tbody:nth-child(even) {
+    background-color: goldenrod;
+    color: #fff;
 }

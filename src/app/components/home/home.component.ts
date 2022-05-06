@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   people: People[] = [];
   person!: People;
   selectedPerson!: People;
-  pageNumber: number = 2;
+  pageNumber: number = 3;
   
   constructor(private personService: PersonService) { }
   
@@ -21,6 +21,24 @@ export class HomeComponent implements OnInit {
       this.people = results;
     })
   }
+// TODO: pagination
+  // nextPage() {
+  //   if (this.pageNumber == 9) {
+  //     return
+  //   } else {
+  //     this.pageNumber++
+  //     this.getPeople();
+  //   }
+  // }
+
+  // previousPage() {
+  //   if (this.pageNumber == 1) {
+  //     return
+  //   } else {
+  //     this.pageNumber--;
+  //     this.getPeople();
+  //   }
+  // }
   
   onSelect(person: People): void {
       this.selectedPerson = person; 
